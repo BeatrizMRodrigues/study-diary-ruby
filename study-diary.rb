@@ -34,18 +34,6 @@ def menu
 end
 
 
-def print_items
-  puts StudyItem.all
-  puts 'Nenhum item encontrado' if StudyItem.all.empty?
-end
-
-def search_items
-  print 'Digite uma palavra para procurar: '
-  term = gets.chomp
-  found_items = StudyItem.all.filter do |item|
-    item.include?(term)
-  end
-end
 
 clear
 puts welcome
@@ -57,9 +45,9 @@ loop do
   when REGISTER
     StudyItem.register
   when VIEW
-    print_items
+    StudyItem.print_items
   when SEARCH
-    search_items
+    StudyItem.search_items
   when EXIT
     clear
     puts 'Obrigado por usar o Diário de Estudos'

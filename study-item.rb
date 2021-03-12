@@ -34,6 +34,20 @@ class StudyItem
     @@study_items
   end
 
+  def self.print_items
+    puts StudyItem.all
+    puts 'Nenhum item encontrado' if StudyItem.all.empty?
+  end
+
+  def self.search_items
+    print 'Digite uma palavra para procurar: '
+    term = gets.chomp
+    found_items = StudyItem.all.filter do |item|
+      item.include?(term)
+    end
+    print_items(found_items)
+  end
+  
   def self.delete
     puts '==== Lista de itens ===='
     #mostrar os itens
