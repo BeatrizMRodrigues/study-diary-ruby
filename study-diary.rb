@@ -47,7 +47,7 @@ loop do
   when VIEW
     StudyItem.print_items
   when SEARCH
-    StudyItem.search_items
+    StudyItem.search
   when EXIT
     clear
     puts 'Obrigado por usar o Diário de Estudos'

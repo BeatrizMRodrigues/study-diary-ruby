@@ -39,18 +39,18 @@ class StudyItem
     puts 'Nenhum item encontrado' if StudyItem.all.empty?
   end
 
-  def self.search_items
-    print 'Digite uma palavra para procurar: '
-    term = gets.chomp
-    found_items = StudyItem.all.filter do |item|
+  def self.search
+      print 'Digite uma palavra para procurar: '
+      term = gets.chomp
+      found = StudyItem.all.filter do |item|
       item.include?(term)
     end
-    print_items(found_items)
+    puts found
   end
-  
+
   def self.delete
     puts '==== Lista de itens ===='
-    #mostrar os itens
+    print_items
     puts 'Qual item de estudos você quer apagar? '
     id = gets.to_i
     study_item = StudyItem.all.detect do |study_item|
